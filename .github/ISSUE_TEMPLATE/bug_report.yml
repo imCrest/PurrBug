@@ -1,0 +1,107 @@
+name: Bug Report
+description: Report a reproducible crash, hook failure, or runtime defect in Purrfect.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Select your device environment setup.
+      options:
+        - "Rooted (BanFree Guide - FolkPatch / KSU Next + Vector)"
+        - "Rooted (Custom Setup - LSPosed / Magisk / APatch)"
+        - "Non-Rooted (LSPatch / NPatch / PurrPatcher / Shizuku)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Patcher / Hooking Framework
+      description: Select the hooking engine or APK patcher injecting Purrfect.
+      options:
+        - "Vector"
+        - "LSPosed / LSPosed_mod"
+        - "LSPatch (Integrated / Portable)"
+        - "NPatch"
+        - "PurrPatcher (Auto-patcher)"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: snapchat_version
+    attributes:
+      label: Snapchat Version
+      description: Exact version of Snapchat installed.
+      placeholder: "e.g. 13.78.0.50"
+    validations:
+      required: true
+
+  - type: input
+    id: purrfect_version
+    attributes:
+      label: Purrfect Version
+      description: Exact Purrfect module release or build.
+      placeholder: "e.g. 1.7.6"
+    validations:
+      required: true
+
+  - type: input
+    id: android_rom
+    attributes:
+      label: Android Version & ROM
+      description: Operating system version and device firmware.
+      placeholder: "e.g. Android 14 (LineageOS 21) / OneUI 6.1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug Description
+      description: Clear summary of the issue, including expected vs actual behavior.
+      placeholder: "Describe the defect concisely."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to Reproduce
+      description: Numbered steps to reliably trigger the bug.
+      placeholder: |
+        1. Launch Snapchat with module enabled
+        2. Tap on ...
+        3. Observe crash or unexpected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: purrfect_logs
+    attributes:
+      label: Purrfect Logs
+      description: Drag and drop your Purrfect log file (.txt, .log) here to upload it, or paste raw logs directly.
+      placeholder: "Drag & drop log file here or paste logs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: framework_logs
+    attributes:
+      label: Framework / Patcher Logs
+      description: Drag and drop your Vector / LSPosed / LSPatch log file (.txt, .log) here to upload it, or paste raw logs directly.
+      placeholder: "Drag & drop log file here or paste logs..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verification Checklist
+      options:
+        - label: "Attached both Purrfect logs and Framework / Patcher logs"
+          required: true
+        - label: "Checked existing open and closed issues to avoid duplicates"
+          required: true
